@@ -37,13 +37,11 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presentViewController(instanceActivity, animated: true, completion:nil)
             
         instanceActivity.completionWithItemsHandler = { (activity,success,items,error) in self.save()
-        //self.dismissViewControllerAnimated(true, completion: nil)
-        instanceActivity.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //instanceActivity.dismissViewControllerAnimated(true, completion: nil)
         
              }
         }
-        
-    
     
     let imageChooser = UIImagePickerController()
     

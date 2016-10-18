@@ -54,7 +54,7 @@ class MemeCollectionViewController: UICollectionViewController {
         // Set the top text, bottom text and image
        // cell.topText.text = meme.text1
        // cell.bottomText.text = meme.text2
-        cell.imageView?.image = meme.image
+        cell.imageView?.image = meme.memedImage
         
         return cell
     }

@@ -12,9 +12,6 @@ private let reuseIdentifier = "Cell"
 
 class TableViewController: UITableViewController {
 
-    
-    
-    
     var memes: [Meme]{
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
@@ -27,11 +24,11 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
+        tableView.reloadData()
     }
 
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("self.memes.count: \(self.memes.count)")
-        return self.memes.count
+    return self.memes.count
         
     }
     
@@ -39,7 +36,7 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell") as!
         MemeTableViewCell
         let meme = self.memes[indexPath.row]
-        cell.imageView?.image = meme.image
+        cell.imageView?.image = meme.memedImage
     
            cell.topText?.text = meme.text1
            cell.bottomText?.text = meme.text2
