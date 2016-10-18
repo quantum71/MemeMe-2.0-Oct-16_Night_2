@@ -37,11 +37,10 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presentViewController(instanceActivity, animated: true, completion:nil)
             
         instanceActivity.completionWithItemsHandler = { (activity,success,items,error) in self.save()
+        //self.dismissViewControllerAnimated(true, completion: nil)
         instanceActivity.dismissViewControllerAnimated(true, completion: nil)
         
-        //This is where I am trying to popback to root
-        self.navigationController?.popToRootViewControllerAnimated(true)
-            }
+             }
         }
         
     
