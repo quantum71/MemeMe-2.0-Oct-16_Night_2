@@ -165,16 +165,24 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func generateMemedImage() -> UIImage
     {
-        // Render view to an image
+       // Render view to an image
         myToolbar.hidden=true
         self.navigationController?.navigationBarHidden=true
         Toolbar.hidden=true
+        let yCoordinate=topField.frame.origin.y
+        topField.frame.origin.y=yCoordinate+140
+        let xCoordinate=topField.frame.origin.x
+        topField.frame.origin.y=xCoordinate+140
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
         afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        let newYCoordinate=topField.frame.origin.y
+        topField.frame.origin.y=newYCoordinate-140
+        let newXCoordinate=topField.frame.origin.y
+        topField.frame.origin.y=newXCoordinate-140
         Toolbar.hidden=false
         myToolbar.hidden = false
         navigationController?.navigationBarHidden=false
