@@ -165,24 +165,30 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func generateMemedImage() -> UIImage
     {
-       // Render view to an image
+      // Render view to an image
+        
+      //  imageView.contentMode = .ScaleAspectFit
         myToolbar.hidden=true
         self.navigationController?.navigationBarHidden=true
         Toolbar.hidden=true
-        let yCoordinate=topField.frame.origin.y
-        topField.frame.origin.y=yCoordinate+140
-        let xCoordinate=topField.frame.origin.x
-        topField.frame.origin.y=xCoordinate+140
+        //Here I move the location of the text fields temporarily for the screenshot
+        let topY=topField.frame.origin.y
+        topField.frame.origin.y=topY+140
+        let bottomY=bottomField.frame.origin.y
+        bottomField.frame.origin.y=bottomY-140
+        //The "photo" is taken below
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
         afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        let newYCoordinate=topField.frame.origin.y
-        topField.frame.origin.y=newYCoordinate-140
-        let newXCoordinate=topField.frame.origin.y
-        topField.frame.origin.y=newXCoordinate-140
+        //Now I reset text fields to original locations
+        let newTopy=topField.frame.origin.y
+        topField.frame.origin.y=newTopy-140
+        let newBottomy=bottomField.frame.origin.y
+        bottomField.frame.origin.y=newBottomy+140
+        //And make toolabars reappear
         Toolbar.hidden=false
         myToolbar.hidden = false
         navigationController?.navigationBarHidden=false
