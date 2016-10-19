@@ -21,13 +21,11 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var bottomField: UITextField!
     @IBOutlet weak var myShareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
-    
+    @IBOutlet weak var Toolbar: UIToolbar!
     
     @IBAction func cancelAction(sender: AnyObject) {
     //test
         print("test")
-    
     }
     
     @IBAction func mySharingButton(sender: AnyObject) {
@@ -170,12 +168,14 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Render view to an image
         myToolbar.hidden=true
         self.navigationController?.navigationBarHidden=true
+        Toolbar.hidden=true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
         afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        Toolbar.hidden=false
         myToolbar.hidden = false
         navigationController?.navigationBarHidden=false
         return memedImage
