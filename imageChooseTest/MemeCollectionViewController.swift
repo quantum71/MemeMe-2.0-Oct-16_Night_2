@@ -14,6 +14,10 @@ private let reuseIdentifier = "Cell"
 
 class MemeCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var viewFlow: UICollectionViewFlowLayout!
+    
+    
+    
     var memes: [Meme]{
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
@@ -21,9 +25,16 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Collection View"
+        let intSpacing: CGFloat=1.0
+        let lineSpacing: CGFloat=1.0
+        let myWidth: CGFloat = 200
+        let myHeight: CGFloat = 200
+        
+        viewFlow.minimumLineSpacing = lineSpacing
+        viewFlow.minimumInteritemSpacing = intSpacing
+        viewFlow.itemSize = CGSizeMake(myWidth,myHeight)
         
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,7 +42,6 @@ class MemeCollectionViewController: UICollectionViewController {
         collectionView?.reloadData()
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -51,10 +61,6 @@ class MemeCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[indexPath.row]
-        
-        // Set the top text, bottom text and image
-       // cell.topText.text = meme.text1
-       // cell.bottomText.text = meme.text2
         cell.imageView?.image = meme.memedImage
         
         return cell
@@ -62,14 +68,10 @@ class MemeCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
-    
-    
     
     // MARK: UICollectionViewDelegate
 

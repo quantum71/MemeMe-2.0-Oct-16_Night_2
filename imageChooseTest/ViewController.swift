@@ -24,7 +24,6 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var Toolbar: UIToolbar!
     
     @IBAction func cancelAction(sender: AnyObject) {
-    //test
         print("test")
     }
     
@@ -33,18 +32,14 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let sharedImage = generateMemedImage()
         let instanceActivity = UIActivityViewController(activityItems: [sharedImage],applicationActivities: nil)
         presentViewController(instanceActivity, animated: true, completion:nil)
-            
         instanceActivity.completionWithItemsHandler = { (activity,success,items,error) in self.save()
         self.dismissViewControllerAnimated(true, completion: nil)
-        //instanceActivity.dismissViewControllerAnimated(true, completion: nil)
-        
              }
         }
     
     let imageChooser = UIImagePickerController()
-    
     //This code sets the attributes of the text in the text fields.
-    let memeTextAttributes = [
+        let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
@@ -171,11 +166,13 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         myToolbar.hidden=true
         self.navigationController?.navigationBarHidden=true
         Toolbar.hidden=true
-        //Here I move the location of the text fields temporarily for the screenshot
+        
+        //Here the text fields are shifted temporarily for the screenshot
         let topY=topField.frame.origin.y
-        topField.frame.origin.y=topY+140
+        topField.frame.origin.y=topY+150
         let bottomY=bottomField.frame.origin.y
-        bottomField.frame.origin.y=bottomY-140
+        bottomField.frame.origin.y=bottomY-150
+    
         //The "photo" is taken below
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
@@ -183,12 +180,14 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         //Now I reset text fields to original locations
         let newTopy=topField.frame.origin.y
-        topField.frame.origin.y=newTopy-140
+        topField.frame.origin.y=newTopy-150
         let newBottomy=bottomField.frame.origin.y
-        bottomField.frame.origin.y=newBottomy+140
-        //And make toolabars reappear
+        bottomField.frame.origin.y=newBottomy+150
+        
+        //And make toolbars reappear
         Toolbar.hidden=false
         myToolbar.hidden = false
         navigationController?.navigationBarHidden=false
@@ -204,34 +203,5 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         imageView.image, memedImage: memedImage)
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        
     }
-    
-//    let appearance = UITabBarItem.appearance()
-//    let attributes = [NSFontAttributeName:UIFont(name: "American Typewriter", size: 20)]
-//    
-//   appearance.setTitleTextAttributes(attributes, forState: .Normal)
-//
-//    
-//    let colorNormal : UIColor = UIColor.blackColor()
-//    let colorSelected : UIColor = UIColor.whiteColor()
-//    let titleFontAll : UIFont = UIFont(name: "American Typewriter", size: 13.0)!
-//    
-//    let attributesNormal = [
-//        NSForegroundColorAttributeName : colorNormal,
-//        NSFontAttributeName : titleFontAll
-//    ]
-//    
-//    let attributesSelected = [
-//        NSForegroundColorAttributeName : colorSelected,
-//        NSFontAttributeName : titleFontAll
-//    ]
-//    
-//    UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: .Normal)
-//    UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: .Selected)
-//    
-//    
-
-    
-    
 }
