@@ -13,6 +13,7 @@ class MemeDetailViewController: UIViewController {
     @IBOutlet weak var detailImage: UIImageView!
     var meme: Meme!
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
@@ -23,4 +24,20 @@ class MemeDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false
     }
+    
+  //  Need to find the integer for the meme array which corresponds to that meme
+  //  override func deleteMeme{
+  //   (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(<#T##index: Int##Int#>)
+    
+    
+  //  }
+    
+ //  override func memeCount -> Int{
+ //  let memeNumber
+ //   (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count
+    
+ //   }
+    
+    
+    
 }

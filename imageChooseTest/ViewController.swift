@@ -14,7 +14,6 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    var memedImage: UIImage!
     @IBOutlet weak var myToolbar: UIToolbar!
     @IBOutlet weak var topToolbar: UIImageView!
     @IBOutlet weak var topField: UITextField!
@@ -22,9 +21,10 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var myShareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var Toolbar: UIToolbar!
+    var memedImage: UIImage!
     
     @IBAction func cancelAction(sender: AnyObject) {
-        print("test")
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func mySharingButton(sender: AnyObject) {
