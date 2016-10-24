@@ -12,7 +12,20 @@ class MemeDetailViewController: UIViewController {
 
     @IBOutlet weak var detailImage: UIImageView!
     var meme: Meme!
+    var memes: [Meme]{
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
     
+    //I am still working on the ability to delete a meme object from an array. The functions below
+    //don't work yet.
+    //func indexValue() -> Int {
+    //    let indexofMeme = memes
+    //}
+    
+    //  Need to find the integer for the meme array which corresponds to that meme
+    // func deleteMeme (){
+    //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex()
+    // }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,20 +37,4 @@ class MemeDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false
     }
-    
-  //  Need to find the integer for the meme array which corresponds to that meme
-  //  override func deleteMeme{
-  //   (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(<#T##index: Int##Int#>)
-    
-    
-  //  }
-    
- //  override func memeCount -> Int{
- //  let memeNumber
- //   (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count
-    
- //   }
-    
-    
-    
 }

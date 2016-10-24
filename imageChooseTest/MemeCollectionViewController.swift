@@ -47,7 +47,6 @@ class MemeCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[indexPath.row]
         cell.imageView?.image = meme.memedImage
-        
         return cell
     }
 
@@ -57,5 +56,4 @@ class MemeCollectionViewController: UICollectionViewController {
         detailController.meme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
-    
 }

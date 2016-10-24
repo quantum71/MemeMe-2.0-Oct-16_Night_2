@@ -13,7 +13,6 @@ class MemeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     var size = CGSize(width: 300, height: 100)
     
-    
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

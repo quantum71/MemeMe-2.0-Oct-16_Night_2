@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeCreationViewController.swift
 //  imageChooseTest
 //
 //  Created by Eduardo Simpson on 5/18/16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var albumButton: UIBarButtonItem!
@@ -46,7 +46,6 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         NSStrokeWidthAttributeName : -7.0
     ]
     
-    //Getting ready for initial view. Note that the share button is not enabled yet.
     override func viewDidLoad() {
         super.viewDidLoad()
         imageChooser.delegate = self
@@ -57,7 +56,6 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         textCharacter(bottomField)
       }
     
-    // This function was created to remove redundant code per the code review.
     func textCharacter(textField: UITextField) {
         textField.delegate = self
         textField.defaultTextAttributes = memeTextAttributes

@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="528" y="265"/>
         </scene>
-        <!--MainViewController-->
+        <!--MemeCreationViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="MainViewController" customClass="MainViewController" customModule="imageChooseTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="MemeCreationViewController" customClass="MemeCreationViewController" customModule="imageChooseTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="944" y="265"/>
         </scene>
-        <!--Meme Details-->
+        <!--MemeDetailViewController-->
         <scene sceneID="I2Y-58-0Pq">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" id="RKR-y5-4lx" userLabel="Meme Details" customClass="MemeDetailViewController" customModule="imageChooseTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" id="RKR-y5-4lx" userLabel="MemeDetailViewController" customClass="MemeDetailViewController" customModule="imageChooseTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y2M-th-IAx"/>
                         <viewControllerLayoutGuide type="bottom" id="gz7-x5-asb"/>
